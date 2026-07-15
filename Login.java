@@ -36,6 +36,9 @@ public class Login {
             if (dashboard.isDisplayed()) {
                 System.out.println("Login successful!");
             }
+            else{
+                System.out.println("Login failed!");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
