@@ -18,6 +18,7 @@ public class Login {
             driver.get("https://opensource-demo.orangehrmlive.com/");
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h5[normalize-space()='Login']")));
             
             //waits until the element is visible on page
             WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
@@ -27,6 +28,8 @@ public class Login {
             usernameField.sendKeys("Admin");
             passwordField.sendKeys("admin123");
             loginButton.click();
+
+            WebElement welcomeMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']")));
 
             // Verify dashboard is visible
             WebElement dashboard = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".oxd-topbar-header-title")));
